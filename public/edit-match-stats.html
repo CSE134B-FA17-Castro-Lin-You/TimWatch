@@ -21,6 +21,7 @@
 
   <body class="with-nav">
 
+    <!-- nav bar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNav()">
         <span class="fa fa-bars fa-lg light"></span>
@@ -63,12 +64,14 @@
             <input class="form-control" type="datetime-local" value="" id="datetime-input">
           </div>
         </div>
+        
         <div class="form-group row">
           <label for="location-input" class="col-md-3 col-form-label">Location</label>
           <div class="col-md-6">
             <input class="form-control" type="text" value="" placeholder="e.g. San Diego Petco Park" id="location-input">
           </div>
         </div>
+        
         <div class="form-group row">
           <label for="gametype-input" class="col-md-3 col-form-label">Game Type</label>
           <div class="col-md-6">
@@ -79,6 +82,7 @@
             </select>
           </div>
         </div>
+        
         <div class="form-group row">
           <label for="status-input" class="col-md-3 col-form-label">Game Status</label>
           <div class="col-md-6">
@@ -89,12 +93,14 @@
             </select>
           </div>
         </div>
+        
         <div class="form-group row">
           <label for="them-input" class="col-md-3 col-form-label">Opponent Team</label>
           <div class="col-md-6">
             <input class="form-control" type="text" placeholder="e.g. UCSD Soccer Team" id="them-input">
           </div>
         </div>
+        
         <table class="table table-striped">
           <thead>
             <tr>
@@ -103,42 +109,50 @@
               <th id="them">Opponent</th>
             </tr>
           </thead>
+          
           <tbody>
             <tr>
               <th scope="row">Foul</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-foul"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-foul"></td>
             </tr>
+            
             <tr>
               <th scope="row">Red Card</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-red-card"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-red-card"></td>
             </tr>
+            
             <tr>
               <th scope="row">Yellow Card</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-yellow-card"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-yellow-card"></td>
             </tr>
+            
             <tr>
               <th scope="row">Shot on Goal</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-shot-on-goal"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-shot-on-goal"></td>
             </tr>
+            
             <tr>
               <th scope="row">Goal</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-goal"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-goal"></td>
             </tr>
+            
             <tr>
               <th scope="row">Corner Kick</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-corner-kick"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-corner-kick"></td>
             </tr>
+            
             <tr>
               <th scope="row">Goal Kick</th>
               <td><input class="form-control" type="number" placeholder="0" value="" id="my-goal-kick"></td>
               <td><input class="form-control" type="number" placeholder="0" value="" id="their-goal-kick"></td>
             </tr>
+            
             <tr>
               <th scope="row">Possession Time</th>
               <td><input class="form-control" type="text" placeholder="HH:MM:SS" value="" id="my-corner-kick"></td>
@@ -146,6 +160,7 @@
             </tr>
           </tbody>
         </table>
+        
         <button type="button" class="btn btn-primary btn-lg" onclick="handleUpdate()">Save</button>
         <button type="button" class="btn btn-danger btn-lg" onclick="handleDelete()">Delete</button>
       </form>

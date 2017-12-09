@@ -8,13 +8,19 @@
 var id;
 var teamName;
 
+
+/*
+   Updates inputted match stats into the corresponding game
+*/
 function handleUpdate() {
   "use strict";
 
   var inputs = document.querySelectorAll('.form-control');
   var datetime = localStorage.getItem("datetime");
   
+  // if the local storage value was correctly passed in
   if (datetime != null) {
+    // find the corresponding game and insert match data into it
     firebase.database().ref('/Games/' + datetime).update({
       stats: {
         us: {
@@ -46,6 +52,10 @@ function handleUpdate() {
   }
 }
 
+/*
+  validates that the person who is trying to access Record Match is either a 
+  manager or a coach
+*/
 function handleAccessRecordMatch(){
   var userId = localStorage.getItem("user");
   if(userId != null){
@@ -62,6 +72,10 @@ function handleAccessRecordMatch(){
   }
 }
 
+/*
+  Sets the page upon load and responds appropriately.
+  Updates global variables, dynamically changes team names, etc.
+*/
 document.addEventListener("DOMContentLoaded", function (event) {
   "use strict";
   firebase.database().ref('/Globals').once('value').then(function (snapshot) {
@@ -72,34 +86,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 })
 
-
-
-// populate dropdown
+/*
+  Populates the drop down with a list of all date + times 
+  of existing games to choose from 
+*/
 function handleChooseDate(){
   var dropdown = document.getElementById("datetimeDropdown");
   var query = firebase.database().ref("Games").orderByKey();
 
+  // manually add in a first option of notifying the user to select a date and time
   var option2 = document.createElement("option");
   option2.text = "Select a date & time";
   dropdown.add(option2);
   
+  // parse through the database, push all date and time as options
   query.once("value").then(function(snapshot){
-
-  snapshot.forEach(function(childSnapshot){ // looping
-
-    var datetime = childSnapshot.child("datetime").val();
-    
-    var option = document.createElement("option");
-    option.text = datetime;
-
-    dropdown.add(option);
+    snapshot.forEach(function(childSnapshot){ // looping
+      var datetime = childSnapshot.child("datetime").val();
+      var option = document.createElement("option");
+      option.text = datetime;
+      dropdown.add(option);
     })
   })
 }
 
-
-
-
+/*
+  Update display information (opponent and location) every time a user selects
+  an option from the dropdown with the corresponding metadata
+*/
 function changeField(){
   var dropdownText = 0;
   var dropdown = document.getElementById("datetimeDropdown");
@@ -111,7 +125,7 @@ function changeField(){
     }
   }
   
-  
+  // change innerHTML
   var opponentName = firebase.database().ref("Games/" + dropdownText);
   opponentName.once("value").then(function(snapshot){
     var opponentNameVal = snapshot.child("them").val();
