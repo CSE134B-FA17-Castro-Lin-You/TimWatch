@@ -5,6 +5,9 @@
 /*eslint no-undef: "error"*/
 /*eslint no-unused-vars: ["error", { "vars": "local", "args": "none" }]*/
 
+/*
+ Authenticates user with email and password.
+ */
 function handleLogin() {
   "use strict";
   var email = document.getElementById("inputEmail").value.trim(),
@@ -14,16 +17,16 @@ function handleLogin() {
   });
 }
 
-
+/*
+ Store user id in local storage and redirect to main page upon
+ successful authentication.
+ */
 firebase.auth().onAuthStateChanged(function (user) {
   "use strict";
   if (user) {
-    //console.log("Welcome " + user.displayName + ": email = " + user.email);
     localStorage.setItem("user",user.uid);  
     window.location = "/view-game-schedule.html";
-  } else {
-   // console.log("Goodbye");
   }
 });
 
-/*ESLint Problems: None */
+/* ESLint Problems: None */

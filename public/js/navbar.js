@@ -5,19 +5,27 @@
 /*eslint no-undef: "error"*/
 /*eslint no-unused-vars: ["error", { "vars": "local", "args": "none" }]*/
 
-/* START navbar code */
+/*
+ Toggle visibility of collapsed navbar (on mobile).
+ */
 function toggleNav() {
   "use strict";
   var nav = document.getElementById('navbarCollapse');
   nav.classList.toggle('collapse');
 }
 
+/*
+ Toggle visibility of navbar dropdown menu.
+ */
 function toggleDropdown() {
   "use strict";
   var dropdown = document.getElementById('navbarDropdownMenu');
   dropdown.classList.toggle('show');
 }
 
+/*
+ Hide navbar dropdown menu when user clicks outside of navbar.
+ */
 window.onclick = function (e) {
   "use strict";
   if (!e.target.matches('.dropdown-toggle')) {
@@ -28,18 +36,4 @@ window.onclick = function (e) {
   }
 };
 
-//function permission(){
-  //"use strict";
-  
-  /* get current user */
-  //firebase.auth().onAuthStateChanged(function (user) {
-    //if (user) {
-      /* if user is fan */
-      /* if user is coach */
-      /* if user is manager */
-      
-    //} 
-  //});
-  
-//}
-/* END navbar code */
+/*ESLint Problems: None */

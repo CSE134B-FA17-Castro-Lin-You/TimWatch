@@ -8,10 +8,13 @@
 var id;
 var teamName;
 
-// Updates firebase database of the stats of a match from a game schedule entry
+/* 
+ Updates the firebase database with the stats of a match from a game schedule 
+ entry. Game schedule entry is identified by its datetime value.
+ */
 function handleUpdate() {
   "use strict";
-    
+
   var id = localStorage.getItem("datetime");    
   var inputs = document.querySelectorAll('.form-control');
 
@@ -52,7 +55,9 @@ function handleUpdate() {
   }
 }
 
-/*Deletes recorded stats for a game*/
+/*
+ Deletes all recorded stats for a game schedule entry.
+ */
 function handleDelete() {
   "use strict";
   id = localStorage.getItem("datetime");     
@@ -67,14 +72,18 @@ function handleDelete() {
   }
 }
 
-/* Handles the popultion of the edit match stats table*/
+/* 
+ Populate edit match stats table when the page is loaded.
+ */
 document.addEventListener("DOMContentLoaded", function (event) {
   "use strict";
   firebase.database().ref('/Globals').once('value').then(function (snapshot) {
     teamName = snapshot.child('TeamName');
   });
   
+  // Get match stats ID from local storage
   var id = localStorage.getItem("datetime");
+
   if (id != null) {
     firebase.database().ref('/Games/' + id).once('value').then(function (snapshot) {
       if (!snapshot.exists()) {
@@ -98,22 +107,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
       inputs[2].value = type.val();
       inputs[3].value = status.val();
       inputs[4].value = themName.val();
-      
+
       us.forEach(function (childSnapshot) {
         inputs[usCtr].value = childSnapshot.val();
         usCtr += 2;
       });
-      
+
       them.forEach(function (childSnapshot) {
         inputs[themCtr].value = childSnapshot.val();
         themCtr += 2;
       });
-      
+
       document.getElementById('them').innerHTML = themName.val();
       document.getElementById('us').innerHTML = teamName.val();
     });
   }   
-           
+
 });
 
 /*ESLint Problems: None */

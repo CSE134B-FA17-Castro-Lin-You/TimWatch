@@ -5,20 +5,23 @@
 /*eslint no-undef: "error"*/
 /*eslint no-unused-vars: ["error", { "vars": "local", "args": "none" }]*/
 
-function handleLogout(){
-   firebase.auth().signOut().then(function () {
-      // Sign-out successful.
-        localStorage.removeItem("user");
-        window.location = "/login.html";
-      "use strict";
-    }, function (error) {
-      // An error happened.
-      "use strict";
-       localStorage.removeItem("user");
-       window.location = "/login.html";
-       
-    });
+/*
+ Log out user and redirect to login page.
+ */
+function handleLogout() {
+  firebase.auth().signOut().then(function () {
+    // Sign-out successful.
+    "use strict";
 
+    localStorage.removeItem("user");
+    window.location = "/login.html";  
+  }, function (error) {
+    // An error happened.
+    "use strict";
+
+    localStorage.removeItem("user");
+    window.location = "/login.html";
+  });
 }
 
-/*ESLint Problems: None*/
+/* ESLint Problems: None */
