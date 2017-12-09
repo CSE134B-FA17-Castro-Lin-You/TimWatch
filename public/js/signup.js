@@ -8,25 +8,24 @@
 function handleSignUp() {
   "use strict";
   var fName = document.getElementById("inputFName").value.trim(),
-    lName = document.getElementById("inputLName").value.trim(),
-    email = document.getElementById("inputEmail").value.trim(),
-    password = document.getElementById("inputPassword").value,
-    tos = document.getElementById("tosAgree").checked;
+      lName = document.getElementById("inputLName").value.trim(),
+      email = document.getElementById("inputEmail").value.trim(),
+      password = document.getElementById("inputPassword").value,
+      tos = document.getElementById("tosAgree").checked;
 
   var coach = document.getElementById("sign-up-coach").checked;
   var manager = document.getElementById("sign-up-manager").checked;
   var other = document.getElementById("sign-up-other").checked;
+  
+  // make sure the user agrees to the terms of service
   if (!tos) {
-    // toggle some attribute in html
-    // TODO form validation & notify user by modifying hidden HTML elements
     alert("Please accept the tos");
     return;
   }
 
+  // password error handling
   firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
     // Handle Errors here.
-    //var errorCode = error.code;
-    //var errorMessage = error.message;
   });
 
   firebase.auth().onAuthStateChanged(function (user) {

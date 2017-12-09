@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   </head>
   <body class="with-nav">
+    
+    <!-- nav bar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleNav()">
       <span class="fa fa-bars fa-lg light"></span>
@@ -48,6 +50,7 @@
         <span class="mobile-hidden light"><a onclick="handleLogout()" class="btn btn-primary" role="button">Log Out</a></span>
       </div>
     </nav>
+    
     <main role="main" class="container mt-3 mt-md-1">
       <div class="row justify-content-center">
         <form class="jumbotron col-md-6 col-sm-12 mt-3 mt-md-5 bg-gray" action="view-game-schedule.html">
@@ -65,27 +68,24 @@
               </label>
             </div>
           </div>
+          
           <div class="form-group">
             <label for="addOpponentTeam">Opponent Team</label>
             <input type="text" class="form-control" id="addOpponentTeam" placeholder="Opponent Team">
           </div>
+          
           <div class="form-group">
             <label for="addLocation">Location</label>
             <input type="text" class="form-control" placeholder="Location" id="addLocation">
           </div>
+          
           <div class="form-group">
             <label for="addDateTime">Time</label>
             <div>
               <input type="datetime-local" class="form-control" value="1970-12-31T00:00:00" id="addDateTime">
             </div>
           </div>
-          <!--
-          <div class="form-group">
-            <label for="addTime">Time</label>
-            <div>
-              <input type="time" class="form-control" id="addTime"/>
-            </div>
-          </div> -->
+          
           <div class="form-group">
             <label>Status</label>
             <div class="radio">
@@ -99,10 +99,12 @@
               </label>
             </div>
           </div>
+          
           <button type="button" onclick="handleAddGame()" class="btn btn-lg center-block">Submit</button>
         </form>
       </div>
     </main>
+    
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script src="js/firebase.js"></script>
     <script src="js/gameCrudAdd.js"></script>

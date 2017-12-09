@@ -92,15 +92,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
       }
 
       var datetime = snapshot.child('datetime'),
-        status = snapshot.child('status'),
-        location = snapshot.child('location'),
-        type = snapshot.child('gameType'),
-        themName = snapshot.child('them'),
-        us = snapshot.child('stats').child('us'),
-        them = snapshot.child('stats').child('them'),
-        usCtr = 5,
-        themCtr = 6,
-        inputs = document.querySelectorAll('.form-control');
+          status = snapshot.child('status'),
+          location = snapshot.child('location'),
+          type = snapshot.child('gameType'),
+          themName = snapshot.child('them'),
+          us = snapshot.child('stats').child('us'),
+          them = snapshot.child('stats').child('them'),
+          usCtr = 5,
+          themCtr = 6,
+          inputs = document.querySelectorAll('.form-control');
 
       inputs[0].value = datetime.val();
       inputs[1].value = location.val();
@@ -122,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
       document.getElementById('us').innerHTML = teamName.val();
     });
   }   
-
 });
 
 /*ESLint Problems: None */
