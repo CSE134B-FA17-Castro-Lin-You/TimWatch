@@ -1,11 +1,11 @@
 // Initialize Firebase
 var config = {
-  apiKey: "AIzaSyBSFe2_t3RDm3-es6-DtnlrE43z72v4Woc",
-  authDomain: "teamwatch-4f856.firebaseapp.com",
-  databaseURL: "https://teamwatch-4f856.firebaseio.com",
-  projectId: "teamwatch-4f856",
-  storageBucket: "teamwatch-4f856.appspot.com",
-  messagingSenderId: "912182851530"
+  apiKey: "AIzaSyA_vzK4jhGf7e2ZYGuTSeCBLCHigdjaqOo",
+  authDomain: "timwatch-b579e.firebaseapp.com",
+  databaseURL: "https://timwatch-b579e.firebaseio.com",
+  projectId: "timwatch-b579e",
+  storageBucket: "timwatch-b579e.appspot.com",
+  messagingSenderId: "454595402134"
 };
 firebase.initializeApp(config); 
 
